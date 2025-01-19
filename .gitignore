@@ -1,0 +1,5 @@
+/target
+/sudoku_rust/Cargo.lock
+/sudoku_rust/debug.out
+/sudoku_rust/target/
+/rtl/obj_dir/
