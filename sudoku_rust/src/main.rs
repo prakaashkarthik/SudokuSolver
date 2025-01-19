@@ -47,7 +47,7 @@ fn main() {
 
     solve(&mut puzzle_grid);
 
-    println! ("Solved grid: ");
+    // println! ("Solved grid: ");
     for r in puzzle_grid {
         println!("{:?}", r);  
     } 
@@ -65,7 +65,7 @@ fn check_grid(grid: [[i8; 9]; 9]) -> bool {
         sorted_r.sort();
         
         if sorted_r != number_set {
-           println!("Row idx {row_idx} did not have all the numbers: {:?}", r);
+           // println!("Row idx {row_idx} did not have all the numbers: {:?}", r);
            return done
         }
 
@@ -80,7 +80,7 @@ fn check_grid(grid: [[i8; 9]; 9]) -> bool {
         sorted_c.copy_from_slice(&col[0..]);
         sorted_c.sort();
         if sorted_c != number_set {
-           println!("col {col_idx} did not have all the numbers: {:?}", col);
+           // println!("col {col_idx} did not have all the numbers: {:?}", col);
            return done
         }
         col_idx += 1;
@@ -108,7 +108,7 @@ fn check_grid(grid: [[i8; 9]; 9]) -> bool {
             subgrid_c.sort();
 
             if subgrid_c != number_set {
-                println!("subgrid {subgrid_idx} did not have all the numbers: {:?}", subgrid);
+                // println!("subgrid {subgrid_idx} did not have all the numbers: {:?}", subgrid);
                 return done
             }
 
@@ -123,7 +123,7 @@ fn check_grid(grid: [[i8; 9]; 9]) -> bool {
 fn solve(grid: &mut [[i8; 9]; 9])  {
 
     if check_grid(*grid) == true {
-        println!("Grid is good! {:?}", grid);
+        // println!("Grid is good! {:?}", grid);
         return 
     }
 
@@ -142,12 +142,12 @@ fn solve(grid: &mut [[i8; 9]; 9])  {
                         }
                     }
 
-                    println!("Resetting cell {r} x {c}");
+                    // println!("Resetting cell {r} x {c}");
                     grid[r][c] = -1;
                     return
 
                 } else {
-                    println!("No possible values in current solution for cell {r} x {c}. Returning");
+                    // println!("No possible values in current solution for cell {r} x {c}. Returning");
                     return
                 }
             }
@@ -205,7 +205,7 @@ fn generate_possible_values(grid: [[i8; 9]; 9], row_in: usize, col_in: usize) ->
         }
     }
 
-    println!("Cell {} x {} = {}. Possible values = {:?}", row_in, col_in, grid[row_in][col_in], possible_values);
+    // println!("Cell {} x {} = {}. Possible values = {:?}", row_in, col_in, grid[row_in][col_in], possible_values);
 
     possible_values 
 }
